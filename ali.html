@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>إلى زهورتي 🌹</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+flex-direction:column;
+overflow:hidden;
+}
+
+h1{
+font-size:28px;
+max-width:700px;
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin-top:20px;
+cursor:pointer;
+background:#ff4d6d;
+color:white;
+}
+
+#poem{
+display:none;
+max-width:650px;
+line-height:2;
+font-size:20px;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 4s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-700px);opacity:0;}
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="text">
+إلى زهورتي… 🌹<br><br>
+سويت هذا الشي الصغير بس لأنك أغلى إنسانة بقلبي
+</h1>
+
+<button onclick="next1()">اضغطي هنا</button>
+
+<div id="poem">
+
+<p>
+
+زهورتي…<br><br>
+
+وعلى يامّه توصّيني  
+إذا مرّك طيفي بالليل  
+گوليله بعده يحبّني  
+وبعد گلبي عليه يميل  
+
+وإذا سألتي عن حالي  
+گوليله بعده مشتاق  
+كل يوم يذكرك أكثر  
+وكل نبضة بيك تشتاق  
+
+</p>
+
+<button onclick="love()">أحبك ❤️</button>
+
+</div>
+
+<audio id="song" src="poem.mp3"></audio>
+
+<script>
+
+function next1(){
+document.getElementById("text").innerHTML=
+"يمكن الكلمات ما تكفي توصف شعوري… لكن حبيت أسوي شي بسيط يوصلك إحساسي 💌";
+
+setTimeout(()=>{
+document.getElementById("text").style.display="none";
+document.querySelector("button").style.display="none";
+document.getElementById("poem").style.display="block";
+document.getElementById("song").play();
+},3000);
+}
+
+function love(){
+alert("أحبك يا زهورتي أكثر مما توصفه الكلمات ❤️");
+}
+
+setInterval(function(){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="0";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove()},4000)
+},500)
+
+</script>
+
+</body>
+</html>
